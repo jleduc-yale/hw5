@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Customs: Resolved Board</title>
+<style>
+  :root { --bg:#f7f5f0; --surface:#fff; --border:#e3e0d7; --text:#1b2430; --muted:#5d6673; --navy:#0f2d52; --gold:#b08d3c; --green:#2e6b4f; --green-tint:#e6f0ea;
+          --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif; font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.55; }
+  body { margin:0; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:3px solid var(--gold); }
+  header h1 { font-family:var(--serif); margin:0 0 4px; font-size:1.9rem; }
+  header p { margin:0; color:#c9d4e3; }
+  main { max-width:1180px; margin:0 auto; padding:28px 40px 64px; display:grid; gap:28px; }
+  .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .stat { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px 18px; }
+  .stat .v { font-family:var(--serif); font-size:1.6rem; font-weight:700; color:var(--navy); font-variant-numeric:tabular-nums; }
+  .stat .l { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); font-weight:600; }
+  nav a { color:var(--navy); margin-right:16px; font-weight:600; text-decoration:none; border-bottom:2px solid var(--gold); }
+  .ticket, .overview { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--green); border-radius:8px; padding:22px 26px; box-shadow:0 1px 3px rgba(16,24,40,.07); }
+  .overview { border-left-color:var(--navy); }
+  .ticket-head { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+  .eyebrow { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.09em; color:var(--muted); font-weight:600; }
+  h2 { font-family:var(--serif); color:var(--navy); margin:2px 0 0; font-size:1.6rem; }
+  .pill { background:var(--green); color:#fff; border-radius:999px; padding:4px 14px; font-weight:600; font-size:0.85rem; white-space:nowrap; }
+  .outcome { font-size:1rem; }
+  .facts { display:grid; grid-template-columns:auto auto auto 1fr; gap:10px 28px; margin:0 0 16px; }
+  .facts dt { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); font-weight:600; }
+  .facts dd { margin:0; } .facts ul { margin:0; padding-left:18px; }
+  img { width:100%; border:1px solid var(--border); border-radius:8px; display:block; }
+  .caption { font-size:0.85rem; color:var(--muted); margin:8px 0 0; }
+  @media (max-width: 800px) { .summary { grid-template-columns:1fr 1fr; } .facts { grid-template-columns:1fr; } main, header { padding-left:18px; padding-right:18px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Campus Customs: Resolved Board</h1>
+  <p>All three desk tickets resolved by the agent team &middot; business date 2026-08-31 &middot; runs on 2026-10-11 with gpt-6-luna (via Portkey, Responses API)</p>
+</header>
+<main>
+  <div class="summary">
+    <div class="stat"><div class="l">Tickets resolved</div><div class="v">3 / 3</div></div>
+    <div class="stat"><div class="l">Starting checking</div><div class="v">$3,400.00</div></div>
+    <div class="stat"><div class="l">Paid out (2 approvals)</div><div class="v">$3,240.00</div></div>
+    <div class="stat"><div class="l">Ending checking</div><div class="v">$160.00</div></div>
+  </div>
+  <nav><a href="#t101">#101 Bulldog tee</a><a href="#t102">#102 Rent due</a><a href="#t103">#103 Bulk hoodie discount</a></nav>
+  <section class="overview">
+    <div class="eyebrow">Board overview</div>
+    <h2>The desk after all three runs</h2>
+    <p class="outcome">Every ticket card is green with a &ldquo;Closed out&rdquo; seal, the queue reads 0 open &middot; 3 resolved, and the header shows the ending checking balance of $160.00.</p>
+    <img src="screenshots/board_overview.png" alt="Dashboard overview with all three tickets resolved">
+  </section>
+  
+  <section class="ticket" id="t101">
+    <div class="ticket-head">
+      <div>
+        <div class="eyebrow">#101 &middot; customer order &middot; from Tauhid Zaman</div>
+        <h2>Bulldog tee</h2>
+      </div>
+      <span class="pill">&#10003; Resolved</span>
+    </div>
+    <p class="outcome">Size S was out of stock, so the team paid the overdue $840.00 rush-reprint invoice #501 (human-approved) to restart the restock, and told the customer the estimated restock date (Sept 5, 2026) with in-stock alternatives.</p>
+    <dl class="facts">
+      <div><dt>Agents</dt><dd>Boss &rarr; Customer Service &rarr; Inventory &rarr; Accounting</dd></div>
+      <div><dt>Delegations</dt><dd>4</dd></div>
+      <div><dt>Tokens</dt><dd>59,566</dd></div>
+      <div><dt>Human approvals</dt><dd><ul><li>Approval #1: invoice #501, $840.00 to Bulldog Print Co, approved by Jason Leduc (payment #1, checking &rarr; $2,560.00)</li></ul></dd></div>
+    </dl>
+    <a href="screenshots/ticket_101.png" target="_blank"><img src="screenshots/ticket_101.png" alt="Dashboard screenshot of resolved ticket 101" loading="lazy"></a>
+    <p class="caption">Desk dashboard, ticket #101 after the run: resolved card in the queue, agent roster (unused agents faded), and the Summary tab with the outcome, the reply sent, and each agent&rsquo;s report.</p>
+  </section>
+  <section class="ticket" id="t102">
+    <div class="ticket-head">
+      <div>
+        <div class="eyebrow">#102 &middot; rent notice &middot; from Elm City Properties</div>
+        <h2>Rent due</h2>
+      </div>
+      <span class="pill">&#10003; Resolved</span>
+    </div>
+    <p class="outcome">The rent notice was verified against lease #1 and the $2,400.00 rent to Elm City Properties was paid (human-approved); the landlord got a payment confirmation.</p>
+    <dl class="facts">
+      <div><dt>Agents</dt><dd>Boss &rarr; Facilities &rarr; Accounting &rarr; Customer Service</dd></div>
+      <div><dt>Delegations</dt><dd>5</dd></div>
+      <div><dt>Tokens</dt><dd>71,296</dd></div>
+      <div><dt>Human approvals</dt><dd><ul><li>Approval #2: rent #1, $2,400.00 to Elm City Properties, approved by Jason Leduc (payment #2, checking &rarr; $160.00)</li></ul></dd></div>
+    </dl>
+    <a href="screenshots/ticket_102.png" target="_blank"><img src="screenshots/ticket_102.png" alt="Dashboard screenshot of resolved ticket 102" loading="lazy"></a>
+    <p class="caption">Desk dashboard, ticket #102 after the run: resolved card in the queue, agent roster (unused agents faded), and the Summary tab with the outcome, the reply sent, and each agent&rsquo;s report.</p>
+  </section>
+  <section class="ticket" id="t103">
+    <div class="ticket-head">
+      <div>
+        <div class="eyebrow">#103 &middot; price override &middot; from Yale AI Club</div>
+        <h2>Bulk hoodie discount</h2>
+      </div>
+      <span class="pill">&#10003; Resolved</span>
+    </div>
+    <p class="outcome">Accounting approved the 15% bulk price ($49.30 each, $986.00 for 20); only 8 size M are in stock, so the club got a quote with options (mix sizes at the bulk price, 8 M at list, or wait on a possible restock). No money moved.</p>
+    <dl class="facts">
+      <div><dt>Agents</dt><dd>Boss &rarr; Accounting &rarr; Inventory &rarr; Customer Service</dd></div>
+      <div><dt>Delegations</dt><dd>5</dd></div>
+      <div><dt>Tokens</dt><dd>73,742</dd></div>
+      <div><dt>Human approvals</dt><dd><ul><li>None needed</li></ul></dd></div>
+    </dl>
+    <a href="screenshots/ticket_103.png" target="_blank"><img src="screenshots/ticket_103.png" alt="Dashboard screenshot of resolved ticket 103" loading="lazy"></a>
+    <p class="caption">Desk dashboard, ticket #103 after the run: resolved card in the queue, agent roster (unused agents faded), and the Summary tab with the outcome, the reply sent, and each agent&rsquo;s report.</p>
+  </section>
+</main>
+</body>
+</html>

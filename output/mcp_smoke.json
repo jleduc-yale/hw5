@@ -1,0 +1,156 @@
+{
+  "server": "campus-customs",
+  "config": ".mcp.json",
+  "database": "data/campus_customs_new.db",
+  "method": "Each tool was called by this Claude Code session through its live connection to the campus-customs MCP server (stdio, configured in .mcp.json). tool_output is the exact JSON the server returned. db_check holds the matching rows read straight from the database with SQL, and matches_db is the field-by-field comparison result.",
+  "tested_on": "2026-10-11",
+  "all_passed": true,
+  "tests": [
+    {
+      "tool": "check_stock_for_sku_and_size",
+      "mcp_tool_id": "mcp__campus-customs__check_stock_for_sku_and_size",
+      "ticket": 101,
+      "prompt": "Ticket 101: Tauhid Zaman wants 1 Classic Bulldog Tee (CC-TEE-WHITE) in size S. Using the campus-customs MCP server, check whether that size is in stock and what other sizes are available.",
+      "arguments": {
+        "sku": "CC-TEE-WHITE",
+        "size": "S"
+      },
+      "tool_output": {
+        "found": true,
+        "sku": "CC-TEE-WHITE",
+        "name": "Classic Bulldog Tee",
+        "size": "S",
+        "qty_on_hand": 0,
+        "in_stock": false,
+        "location": "Aisle B",
+        "all_sizes_for_sku": {
+          "L": 3,
+          "M": 5,
+          "S": 0,
+          "XL": 2
+        }
+      },
+      "db_check": {
+        "sql": "SELECT sku, name, size, qty, location FROM inventory WHERE sku='CC-TEE-WHITE' ORDER BY size",
+        "rows": [
+          [
+            "CC-TEE-WHITE",
+            "Classic Bulldog Tee",
+            "L",
+            3,
+            "Aisle B"
+          ],
+          [
+            "CC-TEE-WHITE",
+            "Classic Bulldog Tee",
+            "M",
+            5,
+            "Aisle B"
+          ],
+          [
+            "CC-TEE-WHITE",
+            "Classic Bulldog Tee",
+            "S",
+            0,
+            "Aisle B"
+          ],
+          [
+            "CC-TEE-WHITE",
+            "Classic Bulldog Tee",
+            "XL",
+            2,
+            "Aisle B"
+          ]
+        ]
+      },
+      "matches_db": true
+    },
+    {
+      "tool": "get_rent_due_and_cash_balance",
+      "mcp_tool_id": "mcp__campus-customs__get_rent_due_and_cash_balance",
+      "ticket": 102,
+      "prompt": "Ticket 102: Elm City Properties says the shop rent is due in 2 days. Using the campus-customs MCP server, look up lease 1 to confirm the rent amount, due date, and landlord, and check whether the cash balance can cover it and whether rent was already paid.",
+      "arguments": {
+        "lease_id": 1
+      },
+      "tool_output": {
+        "found": true,
+        "lease_id": 1,
+        "space_name": "Chapel Street shop",
+        "landlord": "Elm City Properties",
+        "monthly_rent": 2400,
+        "next_due": "2026-09-02",
+        "lease_notes": null,
+        "date_today": "2026-08-31",
+        "cash_accounts": [
+          {
+            "name": "checking",
+            "balance": 3400,
+            "date": "2026-08-31"
+          }
+        ],
+        "rent_payments_already_recorded": []
+      },
+      "db_check": {
+        "sql": [
+          "SELECT * FROM leases WHERE id=1",
+          "SELECT * FROM cash_accounts",
+          "SELECT * FROM payments WHERE kind='rent' AND ref_id=1",
+          "SELECT date_today FROM desk"
+        ],
+        "rows": [
+          [
+            [
+              1,
+              "Chapel Street shop",
+              "Elm City Properties",
+              2400.0,
+              "2026-09-02",
+              null
+            ]
+          ],
+          [
+            [
+              "checking",
+              3400.0,
+              "2026-08-31"
+            ]
+          ],
+          [],
+          [
+            [
+              "2026-08-31"
+            ]
+          ]
+        ]
+      },
+      "matches_db": true
+    },
+    {
+      "tool": "get_price_and_cost_for_sku",
+      "mcp_tool_id": "mcp__campus-customs__get_price_and_cost_for_sku",
+      "ticket": 103,
+      "prompt": "Ticket 103: the Yale AI Club wants 20 Basic Hoodie Big Yale (CC-HOOD-NAVY) at a bulk discount. Using the campus-customs MCP server, look up the hoodie's list price and unit cost so we know the discount floor.",
+      "arguments": {
+        "sku": "CC-HOOD-NAVY"
+      },
+      "tool_output": {
+        "found": true,
+        "sku": "CC-HOOD-NAVY",
+        "unit_cost": 22,
+        "list_price": 58
+      },
+      "db_check": {
+        "sql": "SELECT * FROM pricing WHERE sku='CC-HOOD-NAVY'",
+        "rows": [
+          [
+            "CC-HOOD-NAVY",
+            22.0,
+            58.0
+          ]
+        ]
+      },
+      "matches_db": true
+    }
+  ]
+}

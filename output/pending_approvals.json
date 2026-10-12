@@ -1,0 +1,64 @@
+[
+  {
+    "approval_id": 1,
+    "status": "approved",
+    "tool": "record_payment",
+    "args": {
+      "kind": "invoice",
+      "ref_id": 501,
+      "amount": 840,
+      "account": "checking"
+    },
+    "requested_by": "accounting",
+    "agent_run_id": "20261011T231803Z-c4db99-04-accounting",
+    "run_id": "20261011T231803Z-c4db99",
+    "agent_waiting": false,
+    "requested_at": "2026-10-11T23:18:37.002064+00:00",
+    "decided_by": "Jason Leduc",
+    "decided_at": "2026-10-11T23:18:51.178029+00:00",
+    "result": {
+      "ok": true,
+      "payment_id": 1,
+      "kind": "invoice",
+      "ref_id": 501,
+      "amount": 840.0,
+      "account": "checking",
+      "paid_at": "2026-08-31",
+      "approved_by": "Jason Leduc",
+      "balance_before": 3400.0,
+      "balance_after": 2560.0,
+      "invoice_status": "paid"
+    }
+  },
+  {
+    "approval_id": 2,
+    "status": "approved",
+    "tool": "record_payment",
+    "args": {
+      "kind": "rent",
+      "ref_id": 1,
+      "amount": 2400.0,
+      "account": "checking"
+    },
+    "requested_by": "accounting",
+    "agent_run_id": "20261011T231923Z-9db47e-03-accounting",
+    "run_id": "20261011T231923Z-9db47e",
+    "agent_waiting": false,
+    "requested_at": "2026-10-11T23:19:46.732031+00:00",
+    "decided_by": "Jason Leduc",
+    "decided_at": "2026-10-11T23:19:58.283198+00:00",
+    "result": {
+      "ok": true,
+      "payment_id": 2,
+      "kind": "rent",
+      "ref_id": 1,
+      "amount": 2400.0,
+      "account": "checking",
+      "paid_at": "2026-08-31",
+      "approved_by": "Jason Leduc",
+      "balance_before": 2560.0,
+      "balance_after": 160.0,
+      "lease_next_due": "2026-10-02"
+    }
+  }
+]

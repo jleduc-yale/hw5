@@ -1,0 +1,32 @@
+# Secrets: PORTKEY_API_KEY lives in .env and must never be committed
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Node / Vite
+frontend/node_modules/
+frontend/dist/
+node_modules/
+*.tsbuildinfo
+npm-debug.log*
+
+# Temp files from atomic writes (DB reset, audit trail, approvals)
+*.db.tmp
+*.json.tmp
+data/*.db-wal
+data/*.db-shm
+data/*.db-journal
+
+# Local tool / editor state
+.claude/
+.DS_Store
+.vscode/
+.idea/
+*.log
